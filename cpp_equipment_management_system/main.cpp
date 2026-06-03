@@ -58,7 +58,7 @@ void addEquipment()
 
     cout << "Maintenance Date: ";
     getline(cin, equipmentList[equipmentCount].maintenanceDate);
-
+    
     equipmentCount++;
 
     cout << "\nEquipment added successfully!\n";
