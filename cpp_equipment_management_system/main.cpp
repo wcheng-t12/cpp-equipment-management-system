@@ -90,6 +90,39 @@ void displayEquipment()
     }
 }
 
+void searchEquipment()
+{
+    string searchID;
+    bool found = false;
+
+    cout << "\n=== Search Equipment ===" << endl;
+    cout << "Enter Equipment ID: ";
+    cin >> searchID;
+
+    for (int i = 0; i < equipmentCount; i++)
+    {
+        if (equipmentList[i].equipmentID == searchID)
+        {
+            cout << "\nEquipment Found!" << endl;
+            cout << "ID: " << equipmentList[i].equipmentID << endl;
+            cout << "Name: " << equipmentList[i].name << endl;
+            cout << "Category: " << equipmentList[i].category << endl;
+            cout << "Manufacturer: " << equipmentList[i].manufacturer << endl;
+            cout << "Model: " << equipmentList[i].modelNumber << endl;
+            cout << "Condition: " << equipmentList[i].condition << endl;
+            cout << "Maintenance Date: " << equipmentList[i].maintenanceDate << endl;
+
+            found = true;
+            break;
+        }
+    }
+
+    if (!found)
+    {
+        cout << "Equipment not found." << endl;
+    }
+}
+
 // =====================
 // Main Menu
 // =====================
@@ -104,7 +137,8 @@ int main()
         cout << "=================================" << endl;
         cout << "1. Add Equipment" << endl;
         cout << "2. Display Equipment" << endl;
-        cout << "3. Exit" << endl;
+        cout << "3. Search Equipment" << endl;
+        cout << "4. Exit" << endl;
         cout << "Enter choice: ";
         cin >> choice;
 
@@ -119,6 +153,10 @@ int main()
             break;
 
         case 3:
+            searchEquipment();
+            break;
+
+        case 4:
             cout << "Exiting program..." << endl;
             break;
 
@@ -126,7 +164,7 @@ int main()
             cout << "Invalid choice!" << endl;
         }
 
-    } while (choice != 3);
+    } while (choice != 4);
 
     return 0;
 }
